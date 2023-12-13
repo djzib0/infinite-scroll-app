@@ -32,18 +32,25 @@ code {
   height: 200px;
 }
 
-.fixed-btn {
+.fixed-btn,
+.fixed-btn-add {
   position: fixed;
-  left: 10px;
   width: 120px;
   background-color: coral;
   color: white;
   font-weight: 700;
-
   border: solid 1px;
   border-radius: .4em;
   padding: .7em;
   cursor: pointer;
+}
+
+.fixed-btn {
+  left: 10px;
+}
+
+.fixed-btn-add {
+  left: 200px;
 }
 
 .fixed-btn:hover {

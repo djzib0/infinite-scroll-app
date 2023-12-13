@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {nanoid} from 'nanoid'
 import InfiniteScroll from 'react-infinite-scroller'
+import newRecords from '../data/data';
 
 function Main() {
   const [citiesData, setCitiesData] = useState(null);
@@ -25,13 +26,14 @@ function Main() {
   function fetchMoreData() {
       if (citiesData) {
         setTimeout(() => {
-          // setSliceSize(prevState => prevState < citiesData.length ? prevState + 10: setHasMore(false)) 
           if (sliceSize + 10 < citiesData.length) {
             setSliceSize(prevState => prevState + 10)
           } else {
+            // sliceSize cannot be greater than length of data array.
+            setSliceSize(prevState => citiesData.length)
             setHasMore(false)
           }
-        }, 100); // simulates delayed response from API
+        }, 800); // simulates delayed response from API
           
         }
       }
@@ -42,11 +44,21 @@ function Main() {
     setHasMore(true)
   }
 
+  function addNewRecords() {
+    const records = newRecords;
+    setCitiesData(prevState => [...prevState, ...records])
+    setHasMore(true)
+    if (sliceSize + 10 < citiesData.length) {
+      setSliceSize(prevState => prevState + 10)
+    }
+  }
+
   console.log(hasMore + " <= hasMore")
 
   return (
     <div>
-    <button className='fixed-btn' onClick={() => resetInfiniteScroll()}>GO TOP</button>
+      <button className='fixed-btn' onClick={() => resetInfiniteScroll()}>GO TOP</button>
+      <button className='fixed-btn-add' onClick={() => addNewRecords()}>Add 10 new records</button>
     <InfiniteScroll
       datalength={citiesArr && citiesArr.slice(0, sliceSize).length} 
       next={fetchMoreData} 
