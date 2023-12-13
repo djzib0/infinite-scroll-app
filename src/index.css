@@ -11,3 +11,41 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.data-row {
+  width: 150px;
+  margin: 2px auto;
+  border: solid 1px;
+  border-radius: .2em;
+  border-color: black;
+  padding: 1px;
+  cursor: pointer;
+}
+
+.data-row:hover {
+  background-color: lightblue;
+}
+
+.end-text {
+  color: black;
+  background-color: red;
+  height: 200px;
+}
+
+.fixed-btn {
+  position: fixed;
+  left: 10px;
+  width: 120px;
+  background-color: coral;
+  color: white;
+  font-weight: 700;
+
+  border: solid 1px;
+  border-radius: .4em;
+  padding: .7em;
+  cursor: pointer;
+}
+
+.fixed-btn:hover {
+  opacity: .8;
+}
