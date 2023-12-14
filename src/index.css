@@ -12,9 +12,20 @@ code {
     monospace;
 }
 
-.data-row {
-  width: 150px;
-  margin: 2px auto;
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0 auto;
+  max-width: 460px;
+}
+
+.data-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  margin: 1em auto;
   border: solid 1px;
   border-radius: .2em;
   border-color: black;
@@ -22,7 +33,7 @@ code {
   cursor: pointer;
 }
 
-.data-row:hover {
+.data-container:hover {
   background-color: lightblue;
 }
 
@@ -35,7 +46,7 @@ code {
 .fixed-btn,
 .fixed-btn-add {
   position: fixed;
-  width: 120px;
+  width: fit-content;
   background-color: coral;
   color: white;
   font-weight: 700;
@@ -50,9 +61,34 @@ code {
 }
 
 .fixed-btn-add {
-  left: 200px;
+  left: 100px;
 }
 
-.fixed-btn:hover {
+.fixed-btn:hover,
+.fixed-btn-add:hover {
   opacity: .8;
+}
+
+@media screen and (min-width: 610px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+
+  .data-container {
+    width: 300px;
+    height: 300px;
+    
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0 auto;
+    max-width: 1000px;
+  }
 }
